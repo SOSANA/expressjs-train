@@ -1,1 +1,0 @@
-require('derby-starter').run(__dirname+'/derby-app.js');
