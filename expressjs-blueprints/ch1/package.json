@@ -1,20 +1,20 @@
 {
   "name": "ch1",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "sosana",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "~4.13.0",
-    "jade": "~1.11.0",
-    "passport-local": "~1.0.0",
-    "validator": "~3.40.1",
-    "bcrypt": "~0.8.3",
-    "mongoose": "~4.0.6"
+    "bcrypt": "^0.8.5",
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "mongoose": "^4.2.6",
+    "passport-local": "^1.0.0",
+    "validator": "^4.2.1"
   }
 }
