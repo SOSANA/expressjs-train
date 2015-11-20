@@ -1,4 +1,23 @@
 /**
+ * Express:
+ * 	- express is a connect framework which means it uses the connect middleware.
+ * 		Connecting internally has a stack of functions that hanlde requests
+ * 	- when a request comes in, the first function in the stack is given the
+ * 		request and response objet with the 'next()' function. The 'next()' functions
+ * 		when called, delegates to the next function in the middleware stack. your
+ * 		could also specify a path for your middleware, so it is only called on
+ * 		certain paths
+ *  - lets you add middleware to an application using the 'app.use()' functions
+ *  - internally express has one level of middleware for the router, which
+ *  	delegates to the appropirate handler
+ *
+ * Middleware:
+ * 	- is extraordinary useful for logging, serving, static files, error handling,
+ * 		and more. In fact, passport utilizes middleware for authentication. Before
+ * 		anything else happens, passport looks for a cookie in the request, finds
+ * 		metadata, and then loads the user from the database, adds it to req, user,
+ * 		and then continues down the middleware stack.
+ *
  * REST:
  * 	- an architectural style for building APIs
  * 	- stands for 'Representational State Transfer'
