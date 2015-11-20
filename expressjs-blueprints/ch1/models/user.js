@@ -27,6 +27,7 @@ userSchema.pre('save', function (next) {
   if (!this.isModified('password')) {
     return next();
   }
+  // If the user changed its password, we need to rehash
   this.password = User.encryptPassword(this.password);
   next();
 });
