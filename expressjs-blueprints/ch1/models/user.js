@@ -1,9 +1,9 @@
 /**
  * our model knows about the database, storage, and querying
  */
-
-var mongoose = require('mongoose');
-var validator = require('validator');
+ var mongoose = require('mongoose');
+ var bcrypt = require('bcrypt');
+ var validator = require('validator');
 // our user schema model
 var userSchema = new mongoose.Schema({
   email: {
@@ -32,6 +32,34 @@ userSchema.pre('save', function (next) {
   next();
 });
 
+userSchema.methods = {
+  validPassword: function(password) {
+    return bcrypt.compareSync(password, this.password);
+  }
+};
+
+userSchema.statics = {
+  makeSalt: function() {
+    return bcrypt.genSaltSync(10);
+  },
+  encryptPassword: function(password) {
+    if (!password) {
+      return '';
+    }
+    return bcrypt.hashSync(password, User.makeSalt());
+  },
+  register: function(email, password, cb) {
+    var user = new User({
+      email: email,
+      password: password
+    });
+    user.save(function(err) {
+      cb(err, user);
+    });
+  }
+};
+
+var User = mongoose.model('User', userSchema);
 // adding validation to make sure that our data is correct, using validator
 // validator has validation based on length, URL, int, upper case, etc
 // ***don't forget to validate all user input!!!***
@@ -45,5 +73,6 @@ User.schema.path('password').validate(function (password) {
   return validator.isLength(password, 6);
 });
 
-var User = mongoose.model('User', userSchema);
+User.sch
+
 module.exports = User;
