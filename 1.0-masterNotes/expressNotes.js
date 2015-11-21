@@ -18,6 +18,22 @@
  * 		metadata, and then loads the user from the database, adds it to req, user,
  * 		and then continues down the middleware stack.
  *
+ * - order
+ * 	 	- cookieParser
+ * 	 	- session
+ * 	 	- passport.initialize
+ * 	 	- passport.session
+ * 	 	- app.router
+ * 	 	- ex : app.configure(function() {
+ * 	 				 	app.use(express.static('public'));
+ * 	 				 	app.use(express.cookieParser());
+ * 	 				 	app.use(express.bodyParser());
+ * 	 				 	app.use(express.session({ secret: 'keyboard cat' }));
+ * 	 				 	app.use(passport.initialize());
+ * 	 				 	app.use(passport.session());
+ * 	 				 	app.use(app.router);
+ * 	 				});
+ *
  * REST:
  * 	- an architectural style for building APIs
  * 	- stands for 'Representational State Transfer'
