@@ -13,7 +13,6 @@
  * 		property. All of this functionality is provided transparently by passport,
  * 		as long as we provide definitions for these two functions as given in the following:
  */
-
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('mongoose').model('User');
@@ -62,3 +61,5 @@ passport.use(new LocalStrategy(function (email, password, done) {
     return done(null, user);
   });
 }));
+
+module.exports = passport;
