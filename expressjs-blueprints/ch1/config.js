@@ -6,7 +6,7 @@ var config = {
   },
   test: {
     db_url: 'mongodb://localhost/ebpch01_test',
-    sessionDb: 'mongodb://localhost/chapter01_sessions_test',
+    sessionDb: 'mongodb://localhost/ebpch01_sessions_test',
     domain: 'localhost'
   },
   production: {
