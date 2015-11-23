@@ -1,11 +1,11 @@
 var config = {
   development: {
-    db_url: 'mongodb://localhost/chapter01',
-    sessionDb: 'mongodb://localhost/chapter01_sessions',
+    db_url: 'mongodb://localhost/ebpch01',
+    sessionDb: 'mongodb://localhost/ebpch01_sessions',
     domain: 'localhost'
   },
   test: {
-    db_url: 'mongodb://localhost/chapter01_test',
+    db_url: 'mongodb://localhost/ebpch01_test',
     sessionDb: 'mongodb://localhost/chapter01_sessions_test',
     domain: 'localhost'
   },
@@ -23,8 +23,8 @@ var common = {
     callbackURL: '/auth/twitter/callback'
   },
   google: {
-    clientID: process.env.GOOGLE_ID || '163767935869-achsp47ok2u6ov9piefmj346n5mbl66k.apps.googleusercontent.com',
-    clientSecret: process.env.GOOGLE_SECRET || '-IOSsOHC46xvjjmghToOWprn',
+    clientID: process.env.GOOGLE_ID || '621017014410-hf2abdrtq9vhudk2ljegfmnfuh45gkdm.apps.googleusercontent.com',
+    clientSecret: process.env.GOOGLE_SECRET || 'LwBNqYZYd3ZN7NJHIW8Ic9JO',
     callbackURL: '/auth/google/callback'
   },
   github: {
