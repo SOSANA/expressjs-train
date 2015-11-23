@@ -19,7 +19,10 @@
     "jade": "^1.11.0",
     "mongoose": "^4.2.6",
     "passport": "^0.3.2",
+    "passport-github": "^1.0.0",
+    "passport-google-oauth": "^0.1.5",
     "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.3",
     "validator": "^4.2.1"
   }
 }
