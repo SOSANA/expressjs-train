@@ -73,6 +73,4 @@ User.schema.path('password').validate(function (password) {
   return validator.isLength(password, 6);
 });
 
-User.sch
-
 module.exports = User;
