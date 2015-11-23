@@ -13,6 +13,10 @@
 var passport = require('../passport');
 var User = require('mongoose').model('User');
 
+module.exports.getLogin = function(req, res, next) {
+  res.render('login');
+};
+
 // this tells passport that the handler uses the local authentication Strategy
 // so when someone hits the route, passport will delegate to our LocalStrategy
 // if they provided a valid email/password combination, our LocalStrategy will
@@ -24,32 +28,25 @@ module.exports.postLogin = passport.authenticate('local', {
   failureRedirect: '/users/login'
 });
 
-module.exports.showRegistrationForm = function (req, res, next) {
+module.exports.getRegister = function(req, res, next) {
   res.render('register');
 };
 
-module.exports.createUser = function (req, res, next) {
-  User.register(req.body.email, req.body.password, function (err, user) {
-    if (err) return next (err);
-    req.login(user, function (err) {
+module.exports.postRegister = function(req, res, next) {
+  User.register(req.body.email, req.body.password, function(err, user) {
+    if (err) return next(err);
+    req.login(user, function(err) {
       if (err) return next(err);
       res.redirect('/');
     });
   });
 };
 
-module.exports.showLoginForm = function (req, res, next) {
-  res.render('login');
-};
-
-// creating a handler that is the result of calling
-// passport.authenticate('local', ...) This tells passport that the handler uses
-// the local authentication strategy
-module.exports.createSession = passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login'
-});
-
 module.exports.getProfile = function(req, res, next) {
   res.render('users/profile', { user: req.user.toJSON() });
+};
+
+module.exports.logout = function(req, res, next) {
+  req.logout();
+  res.redirect('/');
 };
