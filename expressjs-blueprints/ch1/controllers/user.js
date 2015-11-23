@@ -49,3 +49,7 @@ module.exports.createSession = passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/login'
 });
+
+module.exports.getProfile = function(req, res, next) {
+  res.render('users/profile', { user: req.user.toJSON() });
+};
