@@ -41,3 +41,11 @@ module.exports.createUser = function (req, res, next) {
 module.exports.showLoginForm = function (req, res, next) {
   res.render('login');
 };
+
+// creating a handler that is the result of calling
+// passport.authenticate('local', ...) This tells passport that the handler uses
+// the local authentication strategy
+module.exports.createSession = passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/login'
+});
