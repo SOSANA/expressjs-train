@@ -11,13 +11,21 @@ var userSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  password: {
-    type: String,
-    required: true
-  },
+  password: String,
   created_at: {
     type: Date,
     default: Date.now
+  },
+  twitter: String,
+  google: String,
+  github: String,
+  tokens: Array,
+  profile: {
+    name: { type: String, default: '' },
+    gender: { type: String, default: '' },
+    location: { type: String, default: '' },
+    website: { type: String, default: '' },
+    picture: { type: String, default: '' }
   }
 });
 // using mongoose middleware to rehash a user's password if and when they
