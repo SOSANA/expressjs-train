@@ -1,28 +1,44 @@
 {
-  "name": "ch1",
-  "version": "1.0.0",
+  "name": "chapter1",
+  "version": "0.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "sever.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "make test",
     "start": "node server.js"
   },
   "author": "",
-  "license": "ISC",
   "dependencies": {
-    "bcrypt": "^0.8.5",
-    "body-parser": "^1.14.1",
-    "cookie-parser": "^1.4.0",
-    "ejs": "^2.3.4",
-    "express": "^4.13.3",
-    "express-session": "^1.12.1",
-    "jade": "^1.11.0",
-    "mongoose": "^4.2.6",
-    "passport": "^0.3.2",
-    "passport-github": "^1.0.0",
-    "passport-google-oauth": "^0.1.5",
-    "passport-local": "^1.0.0",
-    "passport-twitter": "^1.0.3",
-    "validator": "^4.2.1"
+    "bcrypt": "*",
+    "body-parser": "*",
+    "connect-mongo": "*",
+    "cookie-parser": "*",
+    "ejs": "*",
+    "express": "4.*",
+    "express-session": "*",
+    "forever": "*",
+    "grunt": "*",
+    "grunt-contrib-sass": "*",
+    "jade": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-github": "*",
+    "passport-google-oauth": "*",
+    "passport-local": "*",
+    "passport-twitter": "*",
+    "validator": "*"
+  },
+  "devDependencies": {
+    "grunt-contrib-watch": "*",
+    "grunt-express-server": "*",
+    "grunt-mocha": "*",
+    "grunt-mocha-test": "*",
+    "mocha": "*",
+    "should": "*",
+    "supertest": "*"
+  },
+  "subdomain": "baugarten-chapter1",
+  "engines": {
+    "node": "4.1.2"
   }
 }

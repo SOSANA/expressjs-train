@@ -1,9 +1,9 @@
 /**
  * our model knows about the database, storage, and querying
  */
- var mongoose = require('mongoose');
- var bcrypt = require('bcrypt');
- var validator = require('validator');
+var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
+var validator = require('validator');
 // our user schema model
 var userSchema = new mongoose.Schema({
   email: {
@@ -26,12 +26,13 @@ var userSchema = new mongoose.Schema({
     location: { type: String, default: '' },
     website: { type: String, default: '' },
     picture: { type: String, default: '' }
-  }
+  },
 });
+
 // using mongoose middleware to rehash a user's password if and when they
 // decide to change it, every time a user is saved, we'll check to server
 // whether their password was changed
-userSchema.pre('save', function (next) {
+userSchema.pre('save', function(next) {
   if (!this.isModified('password')) {
     return next();
   }
@@ -72,12 +73,11 @@ var User = mongoose.model('User', userSchema);
 // validator has validation based on length, URL, int, upper case, etc
 // ***don't forget to validate all user input!!!***
 // validation for email
-User.schema.path('email').validate(function (email) {
+User.schema.path('email').validate(function(email) {
   return validator.isEmail(email);
 });
-
 // validation for password
-User.schema.path('password').validate(function (password) {
+User.schema.path('password').validate(function(password) {
   return validator.isLength(password, 6);
 });
 

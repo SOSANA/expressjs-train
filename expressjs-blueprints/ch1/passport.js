@@ -20,8 +20,9 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var GitHubStrategy = require('passport-github').Strategy;
 
 var config = require('./config')();
-console.log(config);
+//console.log(config);
 var User = require('mongoose').model('User');
+
 // tell passport that when we serialize a user, we only need that user's id
 passport.serializeUser(function(user, done) {
   done(null, user.id);
