@@ -22,7 +22,7 @@ app.engine('hbs', engines.handlebars);
 app.set('views', './views');
 app.set('view engine', 'hbs');
 
-// servering our static image directory
+// serving our static image directory
 app.use('/profilepics', express.static('images'));
 
 // route to main page
