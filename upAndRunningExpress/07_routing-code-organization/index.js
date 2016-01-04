@@ -64,6 +64,7 @@ app.get('/error/:username', function(req, res) {
   res.status(404).send('No user named ' + req.params.username + ' found');
 });
 
+// requiring our username route handler
 var userRouter = require('./username');
 app.use('/:username', userRouter);
 
